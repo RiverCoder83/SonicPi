@@ -79,23 +79,23 @@ end
 
 sleep 8
 
-live_loop :choir do
+live_loop :choir_and_synth do
   2.times do
-    use_synth :pluck
-    sample :ambi_choir, beat_stretch: 4, pitch: :C2, amp: 0.5
-    play :F3, amp: 0.5
+    use_synth :bass_foundation
+    sample :ambi_choir, beat_stretch: 4, pitch: :Df2, amp: 0.5
+    play :Df2, amp: 0.85
     sleep 4
-    sample :ambi_choir, beat_stretch: 4, pitch: :E3, amp: 0.5
-    play :F3, amp: 0.5
+    sample :ambi_choir, beat_stretch: 4, pitch: :C3, amp: 0.5
+    play :C3, amp: 0.85
     sleep 2
-    play :F3, amp: 0.5
+    play :C3, amp: 0.85
     sleep 2
   end
   stop
 end
 
 sleep 16
-sample :drum_cymbal_closed, rate: -1, beat_stretch: 4, pitch: :E2, amp: 2
+sample :drum_cymbal_closed, rate: -1, beat_stretch: 4, pitch: :E2, amp: 0.9
 sleep 4
 sample rulerOfMyHeart, beat_stretch: 28
 sleep 28
@@ -104,8 +104,10 @@ with_fx :echo do
 end
 sleep 4
 with_fx :tremolo do
-  use_synth :chipbass
-  2.times do
-    main_melody
+  with_fx :pitch_shift, pitch: -12, amp: 2 do
+    use_synth :piano
+    2.times do
+      main_melody
+    end
   end
 end
