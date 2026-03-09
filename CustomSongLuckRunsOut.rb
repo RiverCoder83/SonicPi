@@ -103,11 +103,14 @@ with_fx :echo do
   sample :drum_cymbal_closed, rate: -1, beat_stretch: 4, pitch: :E4, amp: 0.8
 end
 sleep 4
+
+amp = 3
 with_fx :tremolo do
-  with_fx :pitch_shift, pitch: -12, amp: 2 do
-    use_synth :piano
-    2.times do
+  3.times do
+    with_fx :pitch_shift, pitch: -12, amp: amp do
+      use_synth :piano
       main_melody
+      amp = amp - 1
     end
   end
 end
