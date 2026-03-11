@@ -1,33 +1,32 @@
 # Luck Runs Out "remix"
-
 # BPM
 use_bpm 110
-
 # ALNST sample
 rulerOfMyHeart = "C:/Users/logan_benavente/Desktop/rulerOfMyHeart.wav"
+mainMelody = [:Df4, :Af3, :Ef4, :Af3, :C4, :Af4, :Ef4, :Af4]
 
 define :main_melody do
+  # Set i
+  i = 0
   # First set of notes
   2.times do
-    play :Df4, amp: 0.7
-    sleep 0.5
-    play :Af3, amp: 0.7
-    sleep 0.5
-    play :Ef4, amp: 0.7
-    sleep 0.5
-    play :Af3, amp: 0.7
-    sleep 0.5
+    4.times do
+      play mainMelody[i], amp: 0.7
+      sleep 0.5
+      i += 1
+    end
+    i = 0
   end
+  # Set i again
+  i = 4
   # Second set of notes
   2.times do
-    play :C4, amp: 0.7
-    sleep 0.5
-    play :Af4, amp: 0.7
-    sleep 0.5
-    play :Ef4, amp: 0.7
-    sleep 0.5
-    play :Af4, amp: 0.7
-    sleep 0.5
+    4.times do
+      play mainMelody[i], amp: 0.7
+      sleep 0.5
+      i += 1
+    end
+    i = 4
   end
 end
 
