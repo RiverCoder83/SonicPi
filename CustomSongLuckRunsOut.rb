@@ -97,12 +97,12 @@ sleep 16
 sample :drum_cymbal_closed, rate: -1, beat_stretch: 4, pitch: :E2, amp: 0.9
 sleep 4
 sample rulerOfMyHeart, beat_stretch: 28
+=begin
 sleep 28
 with_fx :echo do
   sample :drum_cymbal_closed, rate: -1, beat_stretch: 4, pitch: :E4, amp: 0.8
 end
 sleep 4
-
 amp = 3
 with_fx :tremolo do
   3.times do
@@ -113,3 +113,4 @@ with_fx :tremolo do
     end
   end
 end
+=end
